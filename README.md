@@ -30,15 +30,17 @@ texture turn into thousands of paths.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmES777/vector-svg-colab/blob/main/flux_schnell_colab.ipynb)
 
-`flux_schnell_colab.ipynb` runs FLUX.1-schnell (12B) on the same free T4 using
-4-bit NF4 quantization. Apache 2.0, so no HuggingFace token gate. Four steps,
-~30-60 s per 1024px image, Gradio gallery with seeds and aspect ratios.
+`flux_schnell_colab.ipynb` runs Shuttle 3 Diffusion — a FLUX.1-schnell derivative,
+Apache 2.0 and genuinely ungated — on the same free T4 using 4-bit NF4
+quantization. Four steps, ~30-60 s per 1024px image, Gradio gallery with seeds
+and aspect ratios.
 
 FLUX reads sentences, not tag soup. Describe the scene, the light and the lens;
 drop `masterpiece, 8k, trending on artstation`.
 
-FLUX.1-dev scores slightly higher on aesthetics but is gated behind a license
-acceptance and needs a token, so schnell is the default here.
+Both `black-forest-labs/FLUX.1-schnell` and `FLUX.1-dev` report `gated: auto` on
+the HuggingFace API: approval is instant, but a token is still mandatory. The
+notebook carries a commented block for switching to them via a Colab secret.
 
 ## Notes
 
