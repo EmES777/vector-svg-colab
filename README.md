@@ -1,0 +1,36 @@
+# Text → SVG on free Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmES777/vector-svg-colab/blob/main/vector_svg_colab.ipynb)
+
+Prompt → raster (SDXL-Turbo) → vector trace (VTracer) → downloadable SVG.
+Gradio UI, three cells, runs on a free Colab T4.
+
+## Use
+
+1. Open the notebook via the badge above.
+2. `Runtime → Change runtime type → T4 GPU`.
+3. Run cell 1 (install, ~2 min), then cell 2 (model + UI, ~3 min first run).
+4. Enter a prompt, tune the VTracer sliders, download the `.svg`.
+
+## Tracing parameters
+
+| Parameter | Effect |
+| --- | --- |
+| `filter_speckle` | Drops small noise shapes. Raise it when the SVG has hundreds of tiny paths. |
+| `color_precision` | Number of distinct colors kept. Lower = flatter, smaller file. |
+| `layer_difference` | Merges near-identical color layers. |
+| `path_precision` | Decimal places in path coordinates. |
+| `mode` | `spline` for smooth curves, `polygon` for hard edges, `pixel` for no tracing. |
+
+Prompt style matters more than any slider: the notebook appends
+`flat vector illustration, bold solid colors, no gradients`. Gradients and
+texture turn into thousands of paths.
+
+## Notes
+
+Free Colab gives no GPU guarantee, ~12.7 GB RAM, disconnects after 90 min idle,
+and caps daily GPU hours. Download results as you go.
+
+Native SVG generation (`starvector/starvector-1b-im2svg`) fits a T4 and is worth
+trying for icons. Score-distillation approaches (VectorFusion, SVGDreamer) need a
+`diffvg` CUDA build that routinely fails on current Colab images — avoided here.
