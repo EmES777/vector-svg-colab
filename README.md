@@ -26,6 +26,20 @@ Prompt style matters more than any slider: the notebook appends
 `flat vector illustration, bold solid colors, no gradients`. Gradients and
 texture turn into thousands of paths.
 
+## FLUX.1-schnell (raster, near-Midjourney quality)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmES777/vector-svg-colab/blob/main/flux_schnell_colab.ipynb)
+
+`flux_schnell_colab.ipynb` runs FLUX.1-schnell (12B) on the same free T4 using
+4-bit NF4 quantization. Apache 2.0, so no HuggingFace token gate. Four steps,
+~30-60 s per 1024px image, Gradio gallery with seeds and aspect ratios.
+
+FLUX reads sentences, not tag soup. Describe the scene, the light and the lens;
+drop `masterpiece, 8k, trending on artstation`.
+
+FLUX.1-dev scores slightly higher on aesthetics but is gated behind a license
+acceptance and needs a token, so schnell is the default here.
+
 ## Notes
 
 Free Colab gives no GPU guarantee, ~12.7 GB RAM, disconnects after 90 min idle,
